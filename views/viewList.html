@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>My Lists</title>
+</head>
+<body>
+    <header>
+        <img src="/img/informe.png" alt="" class="logo"><h2 class="logo-text">To-Do List</h2>
+        <nav class="navigation">
+            <a href="/views/createList.html">Create</a>
+            <a href="/index.html">Home</a>
+            <button class="btnLogin-popup">Lists</button>
+        </nav>
+    </header>
+
+    <!-- <div id="list">
+        <div id="colorDiv"></div>
+        <input type="checkbox" id="checkInput">
+        <h1 id="name"></h1>
+        
+        <p id="desp"></p>
+
+        <div id="buttons">
+            <button id="editButton">Editar</button>
+            <button id="deleteButton">Borrar</button>
+        </div>
+    </div> -->
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      // Recuperar datos almacenados en localStorage
+      var nameList = localStorage.getItem('nameList');
+      var colorList = localStorage.getItem('colorList');
+      var despList = localStorage.getItem('despList');
+
+      // Verificar si los datos están presentes antes de continuar
+      if (nameList && colorList && despList) {
+        // Crear el div con los datos recuperados
+        var listElement = document.createElement('div');
+        listElement.id = 'list';
+
+        // Agregar elementos al div según los datos recuperados
+        listElement.innerHTML = `
+          <div id="colorDiv" style="background-color: ${colorList}"></div>
+          <input type="checkbox" id="checkInput">
+          <h1 id="name">${nameList}</h1>
+          <p id="desp">${despList}</p>
+          <div id="buttons">
+              <button id="editButton">Editar</button>
+              <button id="deleteButton">Borrar</button>
+          </div>
+        `;
+
+        // Insertar el div en el cuerpo del documento
+        document.body.appendChild(listElement);
+
+        // Asociar la función al evento de clic en el botón "Borrar"
+        document.getElementById('deleteButton').addEventListener('click', function() {
+          listElement.remove();
+          
+          // Limpiar los datos del div en localStorage
+          localStorage.removeItem('nameList');
+          localStorage.removeItem('colorList');
+          localStorage.removeItem('despList');
+        });
+      }
+    });
+      </script>
+</body>
+</html>

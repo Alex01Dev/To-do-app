@@ -11,7 +11,7 @@
     <header>
         <img src="/img/informe.png" alt="" class="logo"><h2 class="logo-text">To-Do List</h2>
         <nav class="navigation">
-            <a href="#">See My Lists</a>
+            <a href="/views/viewList.html">See My Lists</a>
             <a href="/index.html">Home</a>
             <button class="btnLogin-popup">Create List</button>
         </nav>
@@ -19,20 +19,22 @@
 
     <div class="import-content">
             <h2>Create List</h2>
-                <form action="" method="POST">
+                <form action="" method="" id="form-CreateList">
                     <label for="name-list">List Name:</label>
                     <input type="text" id="name-list">
 
                     <label for="color-list">Select Color for list:</label>
-                    <input type="color" class="color-list">
+                    <input type="color" class="color-list" id="color-list">
 
                     <label for="desp-list">List Description:</label>
                     <input type="text" id="desp-list">
 
-                    <button type="submit" class="btn-list">Create</button>
+                    <input type="button" value="Create" class="btn-list" onclick="listCreate()">
+
                 </form>
     </div>
 
-
+    <script src="/js/main.js"></script>
+    <script src="/js/deleteList.js"></script>
 </body>
 </html>
